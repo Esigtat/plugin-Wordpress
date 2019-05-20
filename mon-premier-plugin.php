@@ -46,11 +46,18 @@ function mon_plugin_yoda_shortcode(){
 }
 
 function mon_plugin_vador_shortcode($atts, $content=""){
+    //tag par défaut
+    $tag ='blockquote';
+    //si $tag valide on le récupère
+    if(isset($atts['tag']) AND in_array($atts['tag'], ['p','h1','h2','div'])){
+        $tag = $atts['tag'];
+    }
+
     //si contenu vide
     if (empty($content)){
         $content = 'Luke';
     }
-    return "<blockquote".$content.", je suis ton père !</blockquote>";
+    return '<'.$tag.'>'.$content.', Je suis ton père!'.'';
 }
 
 //enregistre les shortcodes du plugin
