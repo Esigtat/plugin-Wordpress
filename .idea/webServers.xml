@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="316c32f2-09e1-45a5-80e5-e1a3fa446e9b" name="infomaniakESIG" url="http://amzx.ftp.infomaniak.com">
+        <fileTransfer host="amzx.ftp.infomaniak.com" port="21" rootFolder="/tb">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
