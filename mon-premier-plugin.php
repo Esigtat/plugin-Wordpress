@@ -45,10 +45,19 @@ function mon_plugin_yoda_shortcode(){
 
 }
 
+function mon_plugin_vador_shortcode($atts, $content=""){
+    //si contenu vide
+    if (empty($content)){
+        $content = 'Luke';
+    }
+    return "<blockquote".$content.", je suis ton père !</blockquote>";
+}
+
 //enregistre les shortcodes du plugin
 
 function mon_plugin_register_shortcode(){
     add_shortcode('yoda','mon_plugin_yoda_shortcode');
+    add_shortcode('vador','mon_plugin_vador_shortcode');
 }
 
 add_action('init', 'mon_plugin_register_shortcode');
