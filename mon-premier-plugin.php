@@ -38,3 +38,17 @@ function mon_plugin_the_title($title){
     //ajout d'un filte sur the-title qui appelera le plugin
 
 add_filter('the_title', 'mon_plugin_the_title');
+
+//function qui crée une citation
+function mon_plugin_yoda_shortcode(){
+    return "<blockquote>Que la force soit avec toi jeune padawan!</blockquote>";
+
+}
+
+//enregistre les shortcodes du plugin
+
+function mon_plugin_register_shortcode(){
+    add_shortcode('yoda','mon_plugin_yoda_shortcode');
+}
+
+add_action('init', 'mon_plugin_register_shortcode');
