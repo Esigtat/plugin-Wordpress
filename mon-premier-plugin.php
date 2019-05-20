@@ -17,9 +17,9 @@ function mon_plugin_post_delete_mail($post_id) {
 //Récupére les informations de l'article supprimé
     $post = get_post($post_id);
 //Création du sujet de l'email
-    $sujet = "Artile supprimé :" . $post->post_title;
+    $sujet = "Article supprimé :" . $post->post_title;
 //Création du contenu de l'email
-    $message = "Contenu de l'artilce : " . $post->post_content;
+    $message = "Contenu de l'article : " . $post->post_content;
 //Envoi de l'email à l'administrateur du site
     wp_mail(get_bloginfo('admin_email'), $sujet, $message);
 }
@@ -29,6 +29,12 @@ add_action('delete_post', 'mon_plugin_post_delete_mail');
 
 //function qui remplace la chaine 'et', '&amp;'
 
-/*function mon_plugin_the_title($title){
+function mon_plugin_the_title($title){
     //remplace et dans le titre
-}*/
+    $title = str_replace('et','&amp;', $title);
+    //retourne le titre modifié
+    return $title;
+    }
+    //ajout d'un filte sur the-title qui appelera le plugin
+
+add_filter('the_title', 'mon_plugin_the_title');
